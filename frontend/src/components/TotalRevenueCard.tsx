@@ -39,59 +39,57 @@ const TotalRevenueCard: React.FC<TotalRevenueCardProps> = ({ data }) => {
   const adjustmentsPercent = (totalAdjustments / totalRevenue) * 100;
 
   return (
-    <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-      <div className="text-lg font-semibold text-purple-700 mb-1">Total Expected Revenue</div>
-      <div className="text-2xl font-bold text-purple-900 mb-3">{formatCurrency(totalRevenue)}</div>
+    <div className="bg-purple-50 p-3 sm:p-4 rounded-lg border border-purple-200">
+      <div className="text-base sm:text-lg font-semibold text-purple-700 mb-1">Total Expected Revenue</div>
+      <div className="text-xl sm:text-2xl font-bold text-purple-900 mb-2 sm:mb-3">{formatCurrency(totalRevenue)}</div>
       
       {/* Stacked progress bar */}
-      <div className="h-8 w-full bg-gray-100 rounded-md overflow-hidden flex mb-2">
+      <div className="h-6 sm:h-8 w-full bg-gray-100 rounded-md overflow-hidden flex mb-2">
         <div 
           className="h-full bg-green-500 flex items-center justify-center"
           style={{ width: `${collectedPercent}%` }}
         >
-          <span className="text-xs font-bold text-white px-1">{Math.round(collectedPercent)}%</span>
+          <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(collectedPercent)}%</span>
         </div>
         <div 
           className="h-full bg-orange-400 flex items-center justify-center"
           style={{ width: `${arPercent}%` }}
         >
-          <span className="text-xs font-bold text-white px-1">{Math.round(arPercent)}%</span>
+          <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(arPercent)}%</span>
         </div>
         <div 
           className="h-full bg-red-300 flex items-center justify-center"
           style={{ width: `${adjustmentsPercent}%` }}
         >
-          <span className="text-xs font-bold text-white px-1">{Math.round(adjustmentsPercent)}%</span>
+          <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(adjustmentsPercent)}%</span>
         </div>
         <div 
           className="h-full bg-red-600 flex items-center justify-center"
           style={{ width: `${writeOffPercent}%` }}
         >
-          <span className="text-xs font-bold text-white px-1">{Math.round(writeOffPercent)}%</span>
+          <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(writeOffPercent)}%</span>
         </div>
       </div>
       
       {/* Legend */}
-      <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs mb-1">
+      <div className="grid grid-cols-2 gap-x-2 sm:gap-x-4 gap-y-1 text-[10px] sm:text-xs mb-1">
         <div className="flex items-center">
-          <div className="w-3 h-3 bg-green-500 mr-1 rounded-sm"></div>
-          <span className="text-slate-600">Collected: {formatCurrency(totalCollected)}</span>
+          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 mr-1 rounded-sm"></div>
+          <span className="text-slate-600 truncate">Collected: {formatCurrency(totalCollected)}</span>
         </div>
         <div className="flex items-center">
-          <div className="w-3 h-3 bg-orange-400 mr-1 rounded-sm"></div>
-          <span className="text-slate-600">Outstanding AR: {formatCurrency(totalAR)}</span>
+          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-orange-400 mr-1 rounded-sm"></div>
+          <span className="text-slate-600 truncate">AR: {formatCurrency(totalAR)}</span>
         </div>
         <div className="flex items-center">
-          <div className="w-3 h-3 bg-red-300 mr-1 rounded-sm"></div>
-          <span className="text-slate-600">Adjustments: {formatCurrency(totalAdjustments)}</span>
+          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-300 mr-1 rounded-sm"></div>
+          <span className="text-slate-600 truncate">Adjustments: {formatCurrency(totalAdjustments)}</span>
         </div>
         <div className="flex items-center">
-          <div className="w-3 h-3 bg-red-600 mr-1 rounded-sm"></div>
-          <span className="text-slate-600">Write-offs: {formatCurrency(totalWriteOffs)}</span>
+          <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-600 mr-1 rounded-sm"></div>
+          <span className="text-slate-600 truncate">Write-offs: {formatCurrency(totalWriteOffs)}</span>
         </div>
       </div>
-      
-      
     </div>
   );
 };

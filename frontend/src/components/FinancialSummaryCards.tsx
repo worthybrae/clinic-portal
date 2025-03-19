@@ -55,91 +55,91 @@ const FinancialSummaryCards: React.FC<FinancialSummaryCardsProps> = ({ data }) =
   const patientARPercent = (patientAR / patientTotalRevenue) * 100;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4 mb-4 sm:mb-6">
       {/* Insurer Expected Revenue Card */}
-      <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-        <div className="text-lg font-semibold text-blue-700 mb-1">Insurer Expected Revenue</div>
-        <div className="text-2xl font-bold text-blue-900 mb-3">{formatCurrency(insurerTotalExpectedRevenue)}</div>
+      <div className="bg-blue-50 p-3 sm:p-4 rounded-lg border border-blue-200">
+        <div className="text-base sm:text-lg font-semibold text-blue-700 mb-1">Insurer Expected Revenue</div>
+        <div className="text-xl sm:text-2xl font-bold text-blue-900 mb-2 sm:mb-3">{formatCurrency(insurerTotalExpectedRevenue)}</div>
         
         {/* Stacked progress bar */}
-        <div className="h-8 w-full bg-gray-100 rounded-md overflow-hidden flex mb-2">
+        <div className="h-6 sm:h-8 w-full bg-gray-100 rounded-md overflow-hidden flex mb-2">
           <div 
             className="h-full bg-green-500 flex items-center justify-center"
             style={{ width: `${insurerPaidPercent}%` }}
           >
-            <span className="text-xs font-bold text-white px-1">{Math.round(insurerPaidPercent)}%</span>
+            <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(insurerPaidPercent)}%</span>
           </div>
           <div 
             className="h-full bg-orange-400 flex items-center justify-center"
             style={{ width: `${insurerARPercent}%` }}
           >
-            <span className="text-xs font-bold text-white px-1">{Math.round(insurerARPercent)}%</span>
+            <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(insurerARPercent)}%</span>
           </div>
           <div 
             className="h-full bg-red-300 flex items-center justify-center"
             style={{ width: `${insurerAdjustmentsPercent}%` }}
           >
-            <span className="text-xs font-bold text-white px-1">{Math.round(insurerAdjustmentsPercent)}%</span>
+            <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(insurerAdjustmentsPercent)}%</span>
           </div>
           <div 
             className="h-full bg-red-600 flex items-center justify-center"
             style={{ width: `${insurerWriteOffPercent}%` }}
           >
-            <span className="text-xs font-bold text-white px-1">{Math.round(insurerWriteOffPercent)}%</span>
+            <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(insurerWriteOffPercent)}%</span>
           </div>
         </div>
         
         {/* Legend */}
-        <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs mb-1">
+        <div className="grid grid-cols-2 gap-x-2 sm:gap-x-4 gap-y-1 text-[10px] sm:text-xs mb-1">
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-green-500 mr-1 rounded-sm"></div>
-            <span className="text-slate-600">Collected: {formatCurrency(insurerPaid)}</span>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 mr-1 rounded-sm"></div>
+            <span className="text-slate-600 truncate">Collected: {formatCurrency(insurerPaid)}</span>
           </div>
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-orange-400 mr-1 rounded-sm"></div>
-            <span className="text-slate-600">Outstanding AR: {formatCurrency(insurerAR)}</span>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-orange-400 mr-1 rounded-sm"></div>
+            <span className="text-slate-600 truncate">AR: {formatCurrency(insurerAR)}</span>
           </div>
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-red-300 mr-1 rounded-sm"></div>
-            <span className="text-slate-600">Adjustments: {formatCurrency(insurerAdjustments)}</span>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-300 mr-1 rounded-sm"></div>
+            <span className="text-slate-600 truncate">Adjustments: {formatCurrency(insurerAdjustments)}</span>
           </div>
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-red-600 mr-1 rounded-sm"></div>
-            <span className="text-slate-600">Write-offs: {formatCurrency(insurerWriteOff)}</span>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-600 mr-1 rounded-sm"></div>
+            <span className="text-slate-600 truncate">Write-offs: {formatCurrency(insurerWriteOff)}</span>
           </div>
         </div>
       </div>
       
       {/* Patient Expected Revenue Card */}
-      <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-        <div className="text-lg font-semibold text-green-700 mb-1">Patient Expected Revenue</div>
-        <div className="text-2xl font-bold text-green-900 mb-3">{formatCurrency(patientTotalRevenue)}</div>
+      <div className="bg-green-50 p-3 sm:p-4 rounded-lg border border-green-200">
+        <div className="text-base sm:text-lg font-semibold text-green-700 mb-1">Patient Expected Revenue</div>
+        <div className="text-xl sm:text-2xl font-bold text-green-900 mb-2 sm:mb-3">{formatCurrency(patientTotalRevenue)}</div>
         
         {/* Stacked progress bar */}
-        <div className="h-8 w-full bg-gray-100 rounded-md overflow-hidden flex mb-2">
+        <div className="h-6 sm:h-8 w-full bg-gray-100 rounded-md overflow-hidden flex mb-2">
           <div 
             className="h-full bg-green-500 flex items-center justify-center"
             style={{ width: `${patientPaidPercent}%` }}
           >
-            <span className="text-xs font-bold text-white px-1">{Math.round(patientPaidPercent)}%</span>
+            <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(patientPaidPercent)}%</span>
           </div>
           <div 
             className="h-full bg-orange-400 flex items-center justify-center"
             style={{ width: `${patientARPercent}%` }}
           >
-            <span className="text-xs font-bold text-white px-1">{Math.round(patientARPercent)}%</span>
+            <span className="text-[10px] sm:text-xs font-bold text-white px-1">{Math.round(patientARPercent)}%</span>
           </div>
         </div>
         
         {/* Legend */}
-        <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs mb-1">
+        <div className="grid grid-cols-2 gap-x-2 sm:gap-x-4 gap-y-1 text-[10px] sm:text-xs mb-1">
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-green-500 mr-1 rounded-sm"></div>
-            <span className="text-slate-600">Collected: {formatCurrency(patientPaid)}</span>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 mr-1 rounded-sm"></div>
+            <span className="text-slate-600 truncate">Collected: {formatCurrency(patientPaid)}</span>
           </div>
           <div className="flex items-center">
-            <div className="w-3 h-3 bg-orange-400 mr-1 rounded-sm"></div>
-            <span className="text-slate-600">Outstanding AR: {formatCurrency(patientAR)}</span>
+            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-orange-400 mr-1 rounded-sm"></div>
+            <span className="text-slate-600 truncate">Outstanding AR: {formatCurrency(patientAR)}</span>
           </div>
         </div>
       </div>

@@ -142,21 +142,21 @@ const RevenueProjection: React.FC<RevenueProjectionProps> = ({ data }) => {
                              (payload.find(p => p.dataKey === 'projectedWriteOffs')?.value || 0);
       
       return (
-        <div className="bg-white p-3 border rounded shadow-sm text-xs">
+        <div className="bg-white p-2 border rounded shadow-sm text-xs">
           <p className="font-bold text-sm border-b pb-1 mb-1">{`${label}`}</p>
           
-          <div className="grid grid-cols-2 gap-x-4 gap-y-1">
-            <p className="font-medium">Revenue:</p>
-            <p className="text-right text-blue-600 font-medium">{formatCurrency(totalCollected)}</p>
+          <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+            <p className="text-xs font-medium">Revenue:</p>
+            <p className="text-right text-xs text-blue-600 font-medium">{formatCurrency(totalCollected)}</p>
             
-            <p className="font-medium">Adjustments:</p>
-            <p className="text-right text-orange-600 font-medium">{formatCurrency(totalAdjustments)}</p>
+            <p className="text-xs font-medium">Adjustments:</p>
+            <p className="text-right text-xs text-orange-600 font-medium">{formatCurrency(totalAdjustments)}</p>
             
-            <p className="font-medium">Write-offs:</p>
-            <p className="text-right text-red-600 font-medium">{formatCurrency(totalWriteOffs)}</p>
+            <p className="text-xs font-medium">Write-offs:</p>
+            <p className="text-right text-xs text-red-600 font-medium">{formatCurrency(totalWriteOffs)}</p>
           </div>
           
-          <p className="text-xs text-slate-500 italic mt-1 text-center">
+          <p className="text-[10px] text-slate-500 italic mt-1 text-center">
             {isProjection ? 'Projected' : 'Actual'}
           </p>
         </div>
@@ -167,45 +167,45 @@ const RevenueProjection: React.FC<RevenueProjectionProps> = ({ data }) => {
 
   return (
     <Card className="md:col-span-1">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-lg">Revenue Projections</CardTitle>
-        <CardDescription>
+      <CardHeader className="pb-2 px-4 pt-4 sm:px-6">
+        <CardTitle className="text-base sm:text-lg">Revenue Projections</CardTitle>
+        <CardDescription className="text-xs sm:text-sm">
           Year-to-date revenue with projections
         </CardDescription>
       </CardHeader>
-      <CardContent className="pt-2">
-        <div className="flex gap-4 mb-4">
-          <div className="bg-blue-50 p-3 rounded-md border border-blue-100 flex-1">
-            <p className="text-xs text-slate-600 mb-1">Current Position</p>
-            <p className="text-lg font-bold text-blue-700">{formatCurrency(currentPosition.cumulativeCollected)}</p>
-            <p className="text-xs text-blue-600">Revenue YTD</p>
+      <CardContent className="pt-2 p-2 sm:p-4">
+        <div className="flex flex-wrap gap-2 sm:gap-4 mb-3 sm:mb-4">
+          <div className="bg-blue-50 p-2 sm:p-3 rounded-md border border-blue-100 flex-1 min-w-[calc(50%-0.5rem)]">
+            <p className="text-[10px] sm:text-xs text-slate-600 mb-1">Current Position</p>
+            <p className="text-sm sm:text-lg font-bold text-blue-700">{formatCurrency(currentPosition.cumulativeCollected)}</p>
+            <p className="text-[8px] sm:text-xs text-blue-600">Revenue YTD</p>
           </div>
-          <div className="bg-orange-50 p-3 rounded-md border border-orange-100 flex-1">
-            <p className="text-xs text-slate-600 mb-1">Current Position</p>
-            <p className="text-lg font-bold text-orange-700">{formatCurrency(currentPosition.cumulativeCollected-currentPosition.cumulativeWriteOffs-currentPosition.cumulativeAdjustments)}</p>
-            <p className="text-xs text-orange-600">Net Profit YTD</p>
+          <div className="bg-orange-50 p-2 sm:p-3 rounded-md border border-orange-100 flex-1 min-w-[calc(50%-0.5rem)]">
+            <p className="text-[10px] sm:text-xs text-slate-600 mb-1">Current Position</p>
+            <p className="text-sm sm:text-lg font-bold text-orange-700">{formatCurrency(currentPosition.cumulativeCollected-currentPosition.cumulativeWriteOffs-currentPosition.cumulativeAdjustments)}</p>
+            <p className="text-[8px] sm:text-xs text-orange-600">Net Profit YTD</p>
           </div>
-          <div className="bg-green-50 p-3 rounded-md border border-green-100 flex-1">
-            <p className="text-xs text-slate-600 mb-1">Year-End Projection</p>
-            <p className="text-lg font-bold text-green-700">{formatCurrency(yearEndProjections.projectedCollected || yearEndProjections.currentCollected)}</p>
-            <p className="text-xs text-green-600">Target Revenue</p>
+          <div className="bg-green-50 p-2 sm:p-3 rounded-md border border-green-100 flex-1 min-w-[calc(50%-0.5rem)]">
+            <p className="text-[10px] sm:text-xs text-slate-600 mb-1">Year-End Projection</p>
+            <p className="text-sm sm:text-lg font-bold text-green-700">{formatCurrency(yearEndProjections.projectedCollected || yearEndProjections.currentCollected)}</p>
+            <p className="text-[8px] sm:text-xs text-green-600">Target Revenue</p>
           </div>
-          <div className="bg-purple-50 p-3 rounded-md border border-purple-100 flex-1">
-            <p className="text-xs text-slate-600 mb-1">Year-End Projection</p>
-            <p className="text-lg font-bold text-purple-700">{formatCurrency(yearEndProjections.projectedCollected - yearEndProjections.projectedAdjustments - yearEndProjections.projectedWriteOffs)}</p>
-            <p className="text-xs text-purple-600">Target Net Profit</p>
+          <div className="bg-purple-50 p-2 sm:p-3 rounded-md border border-purple-100 flex-1 min-w-[calc(50%-0.5rem)]">
+            <p className="text-[10px] sm:text-xs text-slate-600 mb-1">Year-End Projection</p>
+            <p className="text-sm sm:text-lg font-bold text-purple-700">{formatCurrency(yearEndProjections.projectedCollected - yearEndProjections.projectedAdjustments - yearEndProjections.projectedWriteOffs)}</p>
+            <p className="text-[8px] sm:text-xs text-purple-600">Target Net Profit</p>
           </div>
         </div>
         
-        <div className="h-64">
+        <div className="h-40 sm:h-64">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart
               data={finalData}
-              margin={{ top: 10, right: 10, left: 10, bottom: 0 }}
+              margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
               stackOffset="none"
             >
               <CartesianGrid strokeDasharray="3 3" vertical={false} opacity={0.2} />
-              <XAxis dataKey="month" axisLine={false} tickLine={false} fontSize={10}/>
+              <XAxis dataKey="month" axisLine={false} tickLine={false} fontSize={9} tick={{ fontSize: 9 }}/>
               <YAxis 
                 tickFormatter={(value) => 
                   new Intl.NumberFormat('en-US', {
@@ -217,7 +217,9 @@ const RevenueProjection: React.FC<RevenueProjectionProps> = ({ data }) => {
                 }
                 axisLine={false}
                 tickLine={false}
-                fontSize={10}
+                fontSize={9}
+                tick={{ fontSize: 9 }}
+                width={40}
               />
               <Tooltip content={<CustomTooltip />} />
               
@@ -287,20 +289,20 @@ const RevenueProjection: React.FC<RevenueProjectionProps> = ({ data }) => {
           </ResponsiveContainer>
         </div>
         
-        <div className="flex flex-1 text-center mt-2 text-xs text-slate-500 justify-center gap-4">
+        <div className="flex flex-wrap justify-center gap-3 mt-2 text-[8px] sm:text-xs text-slate-500">
             <div className="flex items-center">
-                <div className="w-3 h-3 rounded-sm bg-blue-500 mr-1"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-sm bg-blue-500 mr-1"></div>
                 <span>Revenue</span>
             </div>
             <div className="flex items-center">
-                <div className="w-3 h-3 rounded-sm bg-orange-500 mr-1"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-sm bg-orange-500 mr-1"></div>
                 <span>Adjustments</span>
             </div>
             <div className="flex items-center">
-                <div className="w-3 h-3 rounded-sm bg-red-500 mr-1"></div>
+                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-sm bg-red-500 mr-1"></div>
                 <span>Write-offs</span>
             </div>
-            </div>
+        </div>
       </CardContent>
     </Card>
   );
